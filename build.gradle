@@ -8,14 +8,14 @@ repositories {
 }
 
 def copyJava = tasks.register("copyJava", Copy) {
-	from 'src/main/custom/'
-	into "${project.buildDir}/generated/sources/custom/java/testJFlex"
+    from 'src/main/custom/'
+    into "${project.buildDir}/generated/sources/custom/java/testJFlex"
 }
 
 sourceSets {
     main {
         java {
-        	srcDir copyJava
+            srcDir copyJava
         }
     }
 }
