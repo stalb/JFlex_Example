@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id "org.xbib.gradle.plugin.jflex" version "1.7.0" apply false
+}
+
+repositories {
+    mavenCentral()
+}
+
+def copyJava = tasks.register("copyJava", Copy) {
+	from 'src/main/custom/'
+	into "${project.buildDir}/generated/sources/custom/java/testJFlex"
+}
+
+sourceSets {
+    main {
+        java {
+        	srcDir copyJava
+        }
+    }
+}
+
+apply plugin: "org.xbib.gradle.plugin.jflex"
